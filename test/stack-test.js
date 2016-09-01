@@ -4,11 +4,10 @@ const expect = require('chai').expect
 const Stack = require('../lib/stack')
 
 describe('testing the stack', function() {
-  let s
 
   describe('initialize a stack', function() {
     let size = 10
-    s = new Stack(size)
+    let s = new Stack(size)
     it('should be a Stack', function() {
       expect(s).to.be.an.instanceof(Stack)
     })
@@ -20,6 +19,9 @@ describe('testing the stack', function() {
       expect(s.maxSize).to.exist
       expect(s.maxSize).to.be.a('number')
       expect(s.maxSize).to.equal(size)
+    })
+    it('should fail if no maxSize given', function() {
+
     })
   })
 })
