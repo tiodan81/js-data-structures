@@ -3,36 +3,36 @@
 const expect = require('chai').expect
 const Stack = require('../lib/stack')
 
-describe('testing the stack', function() {
 
-  describe('initialize a stack', function() {
-    let size = 10
-    let s = new Stack(size)
-    it('should be a Stack', function() {
-      expect(s).to.be.an.instanceof(Stack)
-    })
-    it('should be empty', function() {
-      expect(s.top).to.equal(0)
-      expect(s.items.length).to.equal(0)
-    })
-    it('should should have proper maxSize', function() {
-      expect(s.maxSize).to.exist
-      expect(s.maxSize).to.be.a('number')
-      expect(s.maxSize).to.equal(size)
-    })
-    it('should fail if no maxSize given', function() {
-      s = new Stack()
-      expect(s).to.be.an.instanceof(Error)
-    })
-    it('should fail if maxSize !number', function() {
-      s = new Stack('a')
-      expect(s).to.be.an.instanceof(Error)
-    })
+describe('initialize a stack', () => {
+  let size = 10
+  let s = new Stack(size)
+  it('should be a Stack', () => {
+    expect(s).to.be.an.instanceof(Stack)
+  })
+  it('should be empty', () => {
+    expect(s.top).to.equal(0)
+    expect(s.items.length).to.equal(0)
+  })
+  it('should should have proper maxSize', () => {
+    expect(s.maxSize).to.exist
+    expect(s.maxSize).to.be.a('number')
+    expect(s.maxSize).to.equal(size)
+  })
+  it('should fail if no maxSize given', () => {
+    s = Stack
+    expect(s).to.throw(ReferenceError)
+  })
+  it('should fail if maxSize !number', () => {
+    let init = (size) => new Stack('a')
+    expect(init).to.throw(TypeError)
   })
 })
 
-//init should fail if !maxSize
-//init should fail if maxSize !number
+describe('test stack push', () => {
+  let s = new Stack(2)
+})
+
 
 //top should always equal items.length
 
