@@ -5,8 +5,9 @@ const Stack = require('../lib/stack')
 
 
 describe('initialize a stack', () => {
-  let size = 10
-  let s = new Stack(size)
+  const size = 10
+  const s = new Stack(size)
+
   it('should be a Stack', () => {
     expect(s).to.be.an.instanceof(Stack)
   })
@@ -20,29 +21,72 @@ describe('initialize a stack', () => {
     expect(s.maxSize).to.equal(size)
   })
   it('should fail if no maxSize given', () => {
-    s = Stack
-    expect(s).to.throw(ReferenceError)
+    const empty = Stack
+    expect(empty).to.throw(ReferenceError)
   })
   it('should fail if maxSize !number', () => {
-    let init = (size) => new Stack('a')
+    const init = (size) => new Stack('a')
     expect(init).to.throw(TypeError)
   })
 })
 
-describe('test stack push', () => {
-  let s = new Stack(2)
+describe('test stack.push()', () => {
+  let size, s
+
+  beforeEach(() => {
+    size = 2
+    s = new Stack(size)
+  })
+
+  it('should increment stack.top', () => {
+    const oldTop = s.top
+    s.push(5)
+    expect(s.top).to.equal(oldTop + 1)
+  })
+  it('should return the stack itself', () => {
+    const pushed = s.push(1)
+    expect(pushed).to.deep.equal(s)
+  })
+  it('top item should equal pushed val', () => {
+    const val = 1
+    s.push(5)
+    s.push(val)
+    expect(s.items[s.top - 1]).to.equal(val)
+  })
+  it('top should equal items.length', () => {
+    s.push(1)
+    expect(s.top).to.equal(s.items.length)
+  })
+  it('should fail if no value pushed', () => {
+    // const emptyPush = () => {return s.push()}
+    // console.log(emptyPush());
+    expect(s.push()).to.be.an.instanceof(ReferenceError)
+  })
+  it('should fail if stack is full', () => {
+    s.push('a')
+    s.push('b')
+    expect(s.push('c')).to.be.an.instanceof(RangeError)
+  })
 })
 
+describe('test stack.pop()', () => {
+  let s
 
-//top should always equal items.length
+  beforeEach(() => {
+    s = new Stack(2)
+    s.push('a')
+  })
 
-//push should increment top + 1
-//stack.items[top - 1] should equal pushed val
-//push should return the stack itself
-//push should fail on full stack
-//push should fail if no value pushed
-
-//pop should return popped value
-//last thing pushed should be returned by pop
-//pop should decrement top
-//pop should fail on empty stacks
+  it('should return popped value', () => {
+    expect(s.pop()).to.equal('a')
+  })
+  it('should decrement top', () => {
+    const oldTop = s.top
+    s.pop()
+    expect(s.top).to.equal(oldTop - 1)
+  })
+  it('should fail on an empty stack', () => {
+    s.pop()
+    expect(s.pop()).to.be.an.instanceof(ReferenceError)
+  })
+})
