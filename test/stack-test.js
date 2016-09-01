@@ -21,7 +21,12 @@ describe('testing the stack', function() {
       expect(s.maxSize).to.equal(size)
     })
     it('should fail if no maxSize given', function() {
-
+      s = new Stack()
+      expect(s).to.be.an.instanceof(Error)
+    })
+    it('should fail if maxSize !number', function() {
+      s = new Stack('a')
+      expect(s).to.be.an.instanceof(Error)
     })
   })
 })
