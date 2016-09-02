@@ -21,11 +21,10 @@ describe('initialize a stack', () => {
     expect(s.maxSize).to.equal(size)
   })
   it('should fail if no maxSize given', () => {
-    const empty = Stack
-    expect(empty).to.throw(ReferenceError)
+    expect(Stack).to.throw(ReferenceError)
   })
   it('should fail if maxSize !number', () => {
-    const init = (size) => new Stack('a')
+    const init = () => new Stack('a')
     expect(init).to.throw(TypeError)
   })
 })
@@ -58,8 +57,6 @@ describe('test stack.push()', () => {
     expect(s.top).to.equal(s.items.length)
   })
   it('should fail if no value pushed', () => {
-    // const emptyPush = () => {return s.push()}
-    // console.log(emptyPush());
     expect(s.push()).to.be.an.instanceof(ReferenceError)
   })
   it('should fail if stack is full', () => {

@@ -14,7 +14,7 @@ Vanilla JS implementations of
 
 Specs based on descriptions from wikipedia. Tested with mocha/chai.
 
-May expand to indclude sorting functions
+May expand to include sorting functions
 - insertion
 - merge
 - quick
