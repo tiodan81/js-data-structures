@@ -10,3 +10,6 @@ describe('instantiate SLL', () => {
     expect(sll).to.deep.equal({head: null, tail: null})
   })
 })
+
+
+//node.prev will always be null
