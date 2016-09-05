@@ -47,7 +47,7 @@ describe('test stack.push()', () => {
     expect(pushed).to.deep.equal(s)
   })
   it('top item should equal pushed val', () => {
-    const val = 1
+    const val = 0
     s.push(5)
     s.push(val)
     expect(s.items[s.top - 1]).to.equal(val)
