@@ -13,8 +13,3 @@ Vanilla JS implementations of
 - binary heap
 
 Specs based on descriptions from wikipedia. Tested with mocha/chai.
-
-May expand to include sorting functions
-- insertion
-- merge
-- quick
