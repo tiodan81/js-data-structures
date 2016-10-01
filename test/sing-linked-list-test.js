@@ -3,7 +3,7 @@
 const expect = require('chai').expect
 const SLL = require('../lib/sing-linked-list')
 
-describe.only('test singly linked list', () => {
+describe('test singly linked list', () => {
   describe('instantiate SLL', () => {
     it('should create an empty list', () => {
       const sll = new SLL()
