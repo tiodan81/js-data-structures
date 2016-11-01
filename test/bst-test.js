@@ -4,7 +4,7 @@ const expect = require('chai').expect
 const Node = require('../lib/node')
 const bst = require('../lib/bst')
 
-describe.only('test BST', () => {
+describe('test BST', () => {
 
   describe('test search()', () => {
     it('should error if no val given', () => {
