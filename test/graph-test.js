@@ -3,7 +3,7 @@
 const expect = require('chai').expect
 const graph = require('../lib/graph')
 
-describe.only('testing graph', () => {
+describe('testing graph', () => {
   describe('createVertex()', () => {
     it('should error if no value given', () => {
       const bad = () => graph.createVertex()
